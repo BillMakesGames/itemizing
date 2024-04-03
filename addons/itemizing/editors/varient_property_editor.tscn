@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c77q8hx5caojx"]
+
+[ext_resource type="Script" path="res://addons/itemizing/editors/varient_property_editor.gd" id="1_png6o"]
+
+[node name="VarientPropertyEditor" type="HBoxContainer" node_paths=PackedStringArray("name_label")]
+script = ExtResource("1_png6o")
+name_label = NodePath("NameLabel")
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Param Name"

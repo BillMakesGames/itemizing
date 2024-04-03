@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://7fpt54l3dsi6"]
+
+[ext_resource type="Script" path="res://addons/itemizing/editors/inventory_editor_control.gd" id="1_o61vc"]
+
+[node name="InventoryEditorControl" type="PanelContainer" node_paths=PackedStringArray("load_container", "random_container", "size_input", "slot_container")]
+script = ExtResource("1_o61vc")
+load_container = NodePath("MarginContainer2/VBoxContainer/Load Container")
+random_container = NodePath("MarginContainer2/VBoxContainer/Random Container")
+size_input = NodePath("MarginContainer2/VBoxContainer/Size Container/SpinBox")
+slot_container = NodePath("MarginContainer2/VBoxContainer/SlotContainer")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Size Container" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer/Size Container"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 18
+text = "Size:"
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer2/VBoxContainer/Size Container"]
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+rounded = true
+alignment = 1
+
+[node name="Load Container" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer/Load Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Copy Contents:"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="SlotContainer" type="VBoxContainer" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 18
+text = "Loot Table Options"
+horizontal_alignment = 1
+
+[node name="Random Container" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer2/VBoxContainer/Random Container"]
+layout_mode = 2
+text = "Roll"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer2/VBoxContainer/Random Container"]
+layout_mode = 2
+text = "Roll At Runtime"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2

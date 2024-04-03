@@ -1,0 +1,174 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw7y01x0g5edn"]
+
+[ext_resource type="Script" path="res://addons/itemizing/editors/database_editor.gd" id="1_3qquh"]
+[ext_resource type="PackedScene" uid="uid://kru5h07r2kk1" path="res://addons/itemizing/editors/item_row.tscn" id="2_5co1u"]
+[ext_resource type="Resource" uid="uid://ci31pm6c5t10x" path="res://addons/itemizing/options.tres" id="2_6spip"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5v42w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21tua"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="DatabaseEditor" type="PanelContainer" node_paths=PackedStringArray("file_picker", "change_folder_button", "refresh_button", "item_container", "directory_label", "new_item", "search_bar")]
+offset_right = 1025.0
+offset_bottom = 573.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5v42w")
+script = ExtResource("1_3qquh")
+plugin_options = ExtResource("2_6spip")
+file_picker = NodePath("MarginContainer/VBoxContainer/TabContainer/Items/Item Options/FileDialog")
+change_folder_button = NodePath("MarginContainer/VBoxContainer/TabContainer/Items/Item Options/ChangeFolder")
+refresh_button = NodePath("MarginContainer/VBoxContainer/TabContainer/Items/Item Options/RefreshButton")
+item_container = NodePath("MarginContainer/VBoxContainer/TabContainer/Items/PanelContainer/ScrollContainer/MarginContainer/ItemContainer")
+item_row_template = ExtResource("2_5co1u")
+directory_label = NodePath("MarginContainer/VBoxContainer/TabContainer/Items/Item Options/Directory Label")
+new_item = NodePath("MarginContainer/VBoxContainer/TabContainer/Items/Item Options/New item")
+search_bar = NodePath("MarginContainer/VBoxContainer/TabContainer/Items/HBoxContainer/LineEdit")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/side_margin = 6
+theme_override_font_sizes/font_size = 20
+
+[node name="Items" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/TabContainer/Items"]
+layout_mode = 2
+
+[node name="Item Options" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items"]
+layout_mode = 2
+
+[node name="RefreshButton" type="Button" parent="MarginContainer/VBoxContainer/TabContainer/Items/Item Options"]
+layout_mode = 2
+text = "Refresh"
+
+[node name="ChangeFolder" type="Button" parent="MarginContainer/VBoxContainer/TabContainer/Items/Item Options"]
+layout_mode = 2
+text = "Change Directory"
+
+[node name="Directory Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/Item Options"]
+layout_mode = 2
+text = "res://addons/itemizing/examples/items"
+
+[node name="FileDialog" type="FileDialog" parent="MarginContainer/VBoxContainer/TabContainer/Items/Item Options"]
+title = "Open a Directory"
+initial_position = 1
+size = Vector2i(400, 300)
+min_size = Vector2i(400, 300)
+ok_button_text = "Select Current Folder"
+dialog_hide_on_ok = true
+file_mode = 2
+
+[node name="New item" type="Button" parent="MarginContainer/VBoxContainer/TabContainer/Items/Item Options"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "New Item"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/TabContainer/Items"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/TabContainer/Items/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Search"
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer/TabContainer/Items"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="MarginContainer/VBoxContainer/TabContainer/Items/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Item Name"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/TabContainer/Items/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Description"
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/TabContainer/Items/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/HBoxContainer2"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Max Stacks"
+
+[node name="VSeparator4" type="VSeparator" parent="MarginContainer/VBoxContainer/TabContainer/Items/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/HBoxContainer2"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "2D Icon"
+
+[node name="VSeparator5" type="VSeparator" parent="MarginContainer/VBoxContainer/TabContainer/Items/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="MarginContainer/VBoxContainer/TabContainer/Items/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "3D Mesh
+"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_21tua")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 2
+
+[node name="ItemContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Items/PanelContainer/ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Loot Tables" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Recipes" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dap3l2ihy4e3u"]
+
+[ext_resource type="Script" path="res://addons/itemizing/nodes/loot_generator.gd" id="1_4j1q3"]
+[ext_resource type="Script" path="res://addons/itemizing/template_scenes/resource_point.gd" id="1_ie4ig"]
+[ext_resource type="PackedScene" uid="uid://dqh43o2vr0b87" path="res://addons/itemizing/template_scenes/3D_item_pickup.tscn" id="2_itgrv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_45hvw"]
+radius = 1.0
+
+[node name="ResourcePoint" type="Node3D"]
+script = ExtResource("1_ie4ig")
+item_pickup_template = ExtResource("2_itgrv")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+
+[node name="LootGenerator" type="Node" parent="."]
+script = ExtResource("1_4j1q3")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_45hvw")

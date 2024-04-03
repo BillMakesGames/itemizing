@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://c30skuugckhyn"]
+
+[ext_resource type="Script" path="res://addons/itemizing/ui_elements/item_slot_control.gd" id="1_hxx3q"]
+[ext_resource type="Script" path="res://addons/itemizing/ui_elements/item_display.gd" id="2_q3hal"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g26w3"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ItemSlotControl" type="PanelContainer"]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 95.0
+offset_bottom = 83.0
+script = ExtResource("1_hxx3q")
+
+[node name="Aspect" type="AspectRatioContainer" parent="."]
+layout_mode = 2
+
+[node name="ItemPanel" type="PanelContainer" parent="Aspect"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_q3hal")
+mode = 1
+
+[node name="Label" type="Label" parent="Aspect/ItemPanel"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 1
+text = "12"
+label_settings = SubResource("LabelSettings_g26w3")
+horizontal_alignment = 2
+vertical_alignment = 2

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://by0heerkgsu2u"]
+
+[ext_resource type="Script" path="res://addons/itemizing/examples/items/healing/healing_item.gd" id="1_4lns3"]
+[ext_resource type="ArrayMesh" uid="uid://cnc33hljpsld" path="res://addons/itemizing/examples/assets/items/apple.res" id="1_5xhw8"]
+
+[resource]
+script = ExtResource("1_4lns3")
+heal_amount = 10.0
+name = "Apple"
+description = "A juicy apple. Delicious!"
+max_stack = 99
+mesh = ExtResource("1_5xhw8")

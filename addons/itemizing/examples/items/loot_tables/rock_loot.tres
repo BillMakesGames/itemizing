@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LootTable" load_steps=2 format=3 uid="uid://bd3uwxsvd85um"]
+
+[ext_resource type="Script" path="res://addons/itemizing/data/loot_table.gd" id="1_wrvcc"]
+
+[resource]
+script = ExtResource("1_wrvcc")
+rolls = Array[Resource("res://addons/itemizing/data/loot_roll.gd")]([])

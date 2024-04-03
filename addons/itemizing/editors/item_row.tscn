@@ -1,0 +1,116 @@
+[gd_scene load_steps=4 format=3 uid="uid://kru5h07r2kk1"]
+
+[ext_resource type="Script" path="res://addons/itemizing/editors/item_row.gd" id="1_7u3cv"]
+[ext_resource type="Texture2D" uid="uid://c74vfclha7owl" path="res://addons/itemizing/icons/down-arrow.png" id="2_orc0x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iig2b"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
+[node name="ItemRow" type="PanelContainer" node_paths=PackedStringArray("content", "name_edit", "description_edit", "stack_edit", "more_options_button", "extra_options", "custom_props_container", "delete_button", "delete_confirmation", "script_base_picker")]
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_iig2b")
+script = ExtResource("1_7u3cv")
+content = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer")
+name_edit = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/Name")
+description_edit = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/Description")
+stack_edit = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/MaxStack")
+more_options_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer2/Button")
+extra_options = NodePath("MarginContainer/VBoxContainer/ExtraOptions")
+custom_props_container = NodePath("MarginContainer/VBoxContainer/ExtraOptions/HBoxContainer/CustomProperties")
+delete_button = NodePath("MarginContainer/VBoxContainer/ExtraOptions/HBoxContainer/VBoxContainer2/Delete Button")
+delete_confirmation = NodePath("MarginContainer/VBoxContainer/ExtraOptions/HBoxContainer/VBoxContainer2/Delete Button/DeleteConfirm")
+script_base_picker = NodePath("MarginContainer/VBoxContainer/ExtraOptions/HBoxContainer/VBoxContainer2/BaseTypeSelector")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Apple"
+placeholder_text = "Name"
+
+[node name="Description" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Description
+"
+
+[node name="MaxStack" type="SpinBox" parent="MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+min_value = 1.0
+max_value = 1e+10
+value = 1.0
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("2_orc0x")
+flat = true
+
+[node name="ExtraOptions" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/ExtraOptions"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ExtraOptions"]
+layout_mode = 2
+
+[node name="CustomProperties" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ExtraOptions/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ExtraOptions/HBoxContainer/CustomProperties"]
+layout_mode = 2
+text = "Class Properties"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/ExtraOptions/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ExtraOptions/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ExtraOptions/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Base Type"
+
+[node name="BaseTypeSelector" type="OptionButton" parent="MarginContainer/VBoxContainer/ExtraOptions/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/ExtraOptions/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 9
+
+[node name="Delete Button" type="Button" parent="MarginContainer/VBoxContainer/ExtraOptions/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Delete"
+
+[node name="DeleteConfirm" type="ConfirmationDialog" parent="MarginContainer/VBoxContainer/ExtraOptions/HBoxContainer/VBoxContainer2/Delete Button"]
+initial_position = 4
+size = Vector2i(342, 100)
+ok_button_text = "DELETE"
+dialog_text = "Are you sure you want to delete this item?"

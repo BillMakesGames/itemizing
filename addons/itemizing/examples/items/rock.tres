@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dfg4kb4r61mwy"]
+
+[ext_resource type="ArrayMesh" uid="uid://cvt1r2l1m8wjk" path="res://addons/itemizing/examples/assets/items/rock.res" id="1_asjpa"]
+[ext_resource type="Script" path="res://addons/itemizing/data/item_data.gd" id="1_ys21m"]
+
+[resource]
+script = ExtResource("1_ys21m")
+name = "Rock"
+description = "It's a rock, what do you want from me?"
+max_stack = 20
+mesh = ExtResource("1_asjpa")

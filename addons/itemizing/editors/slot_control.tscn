@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpfp8yy3ssct3"]
+
+[ext_resource type="Script" path="res://addons/itemizing/editors/slot_control.gd" id="1_np2au"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkb74"]
+bg_color = Color(0.207843, 0.207843, 0.207843, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="SlotControl" type="PanelContainer" node_paths=PackedStringArray("selector_btn")]
+theme_override_styles/panel = SubResource("StyleBoxFlat_qkb74")
+script = ExtResource("1_np2au")
+selector_btn = NodePath("margin/hcontainer/PickItem")
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_bottom = 1
+
+[node name="hcontainer" type="HBoxContainer" parent="margin"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="PickItem" type="Button" parent="margin/hcontainer"]
+layout_mode = 2
+text = "Set Item"
+
+[node name="Amount" type="SpinBox" parent="margin/hcontainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+min_value = 1.0
+value = 1.0
+rounded = true
+allow_greater = true
+alignment = 1
+suffix = "x"

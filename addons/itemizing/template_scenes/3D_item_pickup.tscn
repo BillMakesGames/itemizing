@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqh43o2vr0b87"]
+
+[ext_resource type="Script" path="res://addons/itemizing/template_scenes/3D_item_pickup.gd" id="1_opm3b"]
+[ext_resource type="ArrayMesh" uid="uid://cnc33hljpsld" path="res://addons/itemizing/examples/assets/items/apple.res" id="2_tcmko"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_eej7m"]
+
+[sub_resource type="Curve" id="Curve_xtd1l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.010989), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e2jfx"]
+curve = SubResource("Curve_xtd1l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ceulb"]
+emission_shape_scale = Vector3(0.3, 0.3, 0.3)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 2, 0)
+scale_min = 0.4
+scale_curve = SubResource("CurveTexture_e2jfx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1by5q"]
+albedo_color = Color(1, 0.752941, 0.588235, 1)
+emission_enabled = true
+emission = Color(0.713726, 0.552941, 0, 1)
+emission_energy_multiplier = 9.39
+
+[sub_resource type="SphereMesh" id="SphereMesh_cbnnd"]
+material = SubResource("StandardMaterial3D_1by5q")
+radius = 0.05
+height = 0.1
+
+[node name="3dItemPickup" type="Area3D"]
+script = ExtResource("1_opm3b")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_tcmko")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_eej7m")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_ceulb")
+draw_pass_1 = SubResource("SphereMesh_cbnnd")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cp6xxefvo15a0"]
+
+[ext_resource type="Script" path="res://addons/itemizing/examples/items/healing/healing_item.gd" id="1_3kld6"]
+
+[resource]
+script = ExtResource("1_3kld6")
+heal_amount = 0
+name = "Cookie"
+description = "Everybody loves cookies from grandma."
+max_stack = 50

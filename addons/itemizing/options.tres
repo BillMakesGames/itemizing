@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ItemizingOptions" load_steps=2 format=3 uid="uid://ci31pm6c5t10x"]
+
+[ext_resource type="Script" path="res://addons/itemizing/data/plugin_options.gd" id="1_73le6"]
+
+[resource]
+script = ExtResource("1_73le6")
+item_resource_path = "res://addons/itemizing/examples/items"

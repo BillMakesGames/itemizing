@@ -1,0 +1,13 @@
+[gd_resource type="MeshTexture" load_steps=4 format=3 uid="uid://bdkxc6kn8y2jr"]
+
+[ext_resource type="ArrayMesh" uid="uid://cnc33hljpsld" path="res://addons/itemizing/examples/assets/items/apple.res" id="1_btp88"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_53u4v"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rhdom"]
+noise = SubResource("FastNoiseLite_53u4v")
+
+[resource]
+mesh = ExtResource("1_btp88")
+base_texture = SubResource("NoiseTexture2D_rhdom")
+image_size = Vector2(128, 128)

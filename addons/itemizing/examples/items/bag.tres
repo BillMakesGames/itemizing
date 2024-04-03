@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://75aevi228vok"]
+
+[ext_resource type="ArrayMesh" uid="uid://hhgeycu5jyvu" path="res://addons/itemizing/examples/assets/items/bag.res" id="1_epvqp"]
+[ext_resource type="Script" path="res://addons/itemizing/data/item_data.gd" id="1_rtmct"]
+
+[resource]
+script = ExtResource("1_rtmct")
+name = "Bag"
+description = "It's a bag... of stuff."
+max_stack = 99
+mesh = ExtResource("1_epvqp")

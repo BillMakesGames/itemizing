@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dx2dokv7lagaw"]
+
+[ext_resource type="ArrayMesh" uid="uid://e031esqsfx3e" path="res://addons/itemizing/examples/assets/can.res" id="1_2nmth"]
+[ext_resource type="Script" path="res://addons/itemizing/examples/items/healing/healing_item.gd" id="2_ptcn7"]
+
+[resource]
+script = ExtResource("2_ptcn7")
+heal_amount = -50.0
+name = "Bad Food"
+description = "An old can of food, would not recommend eating. Does 10 damage when used."
+max_stack = 10
+mesh = ExtResource("1_2nmth")

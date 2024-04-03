@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bioeivc1bpexa"]
+
+[ext_resource type="Script" path="res://addons/itemizing/editors/item_data_control.gd" id="1_a7dp3"]
+
+[node name="ItemDataEditor" type="HBoxContainer"]
+script = ExtResource("1_a7dp3")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+text = "Pick Item"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.854902, 0.854902, 0.854902, 1)
+theme_override_colors/font_uneditable_color = Color(0.870588, 0.870588, 0.870588, 1)
+theme_override_colors/font_placeholder_color = Color(0.835294, 0.835294, 0.835294, 1)
+placeholder_text = "Empty"
+editable = false
