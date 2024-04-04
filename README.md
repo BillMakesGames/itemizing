@@ -7,8 +7,8 @@ Download this repostory and place the contents directly in your root project fol
 ## Creating and Editing Items
 You can create new items by clicking the "New Item" button at the top on the itemizing screen. The dialogue that appears has the following options:
 
-Name:
+Name
 : The name of the item to be displayed in various UI elements.
 
-Description:
+Description
 : A short description of the item that is displayed below the item's name in some places.
