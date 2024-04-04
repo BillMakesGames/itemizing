@@ -1,6 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 *.godot
+*icon.svg
 
 # Godot-specific ignores
 .import/

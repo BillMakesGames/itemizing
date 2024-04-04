@@ -48,7 +48,7 @@ item_count = 5
 item_0/text = "Bag"
 item_1/text = "Cookie"
 item_2/text = "Apple"
-item_3/text = "Hurt Me Item"
+item_3/text = "Bad Food"
 item_4/text = "Rock"
 
 [node name="Button" type="Button" parent="VBoxContainer"]
