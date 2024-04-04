@@ -1,0 +1,138 @@
+[gd_scene load_steps=27 format=3 uid="uid://ch6ogltbpq530"]
+
+[ext_resource type="ArrayMesh" uid="uid://bgi8c1x70aiv" path="res://addons/itemizing/examples/assets/items/can.res" id="3_nitym"]
+[ext_resource type="Script" path="res://addons/itemizing/data/item_data.gd" id="4_idi2w"]
+[ext_resource type="Script" path="res://addons/itemizing/nodes/inventory_component.gd" id="4_xqy2q"]
+[ext_resource type="Script" path="res://addons/itemizing/data/inventory_data.gd" id="5_elabs"]
+[ext_resource type="Resource" uid="uid://by0heerkgsu2u" path="res://addons/itemizing/examples/items/healing/apple.tres" id="5_ym4es"]
+[ext_resource type="Script" path="res://addons/itemizing/data/slot_data.gd" id="6_fe2t2"]
+[ext_resource type="Resource" uid="uid://75aevi228vok" path="res://addons/itemizing/examples/items/bag.tres" id="6_mow8m"]
+[ext_resource type="Script" path="res://addons/itemizing/ui_elements/item_slot_grid.gd" id="9_qfqeu"]
+
+[sub_resource type="Resource" id="Resource_ioy5e"]
+script = ExtResource("4_idi2w")
+name = "Can"
+description = "An old can of food, would not recommend eating."
+max_stack = 14
+mesh = ExtResource("3_nitym")
+
+[sub_resource type="Resource" id="Resource_c7p77"]
+script = ExtResource("6_fe2t2")
+item = SubResource("Resource_ioy5e")
+amount = 7
+
+[sub_resource type="Resource" id="Resource_uh0q5"]
+script = ExtResource("6_fe2t2")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_fmxe3"]
+script = ExtResource("6_fe2t2")
+item = ExtResource("5_ym4es")
+amount = 15
+
+[sub_resource type="Resource" id="Resource_jxngx"]
+script = ExtResource("6_fe2t2")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_4alyq"]
+script = ExtResource("6_fe2t2")
+item = ExtResource("5_ym4es")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_nu8ot"]
+script = ExtResource("6_fe2t2")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_o0c6j"]
+script = ExtResource("6_fe2t2")
+item = ExtResource("6_mow8m")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_fxtnm"]
+script = ExtResource("6_fe2t2")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_uhdiv"]
+script = ExtResource("6_fe2t2")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_gk1hl"]
+script = ExtResource("6_fe2t2")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_o60nq"]
+script = ExtResource("6_fe2t2")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_xonog"]
+script = ExtResource("6_fe2t2")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_2bsbl"]
+script = ExtResource("6_fe2t2")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_o3k3i"]
+script = ExtResource("6_fe2t2")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_ivdo2"]
+script = ExtResource("6_fe2t2")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_j38f8"]
+script = ExtResource("5_elabs")
+slots = Array[ExtResource("6_fe2t2")]([SubResource("Resource_c7p77"), SubResource("Resource_uh0q5"), SubResource("Resource_fmxe3"), SubResource("Resource_jxngx"), SubResource("Resource_4alyq"), SubResource("Resource_nu8ot"), SubResource("Resource_o0c6j"), SubResource("Resource_fxtnm"), SubResource("Resource_uhdiv"), SubResource("Resource_gk1hl"), SubResource("Resource_o60nq"), SubResource("Resource_xonog"), SubResource("Resource_2bsbl"), SubResource("Resource_o3k3i"), SubResource("Resource_ivdo2")])
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xms61"]
+bg_color = Color(0.517647, 0.384314, 0.223529, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.356863, 0.188235, 0.0117647, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource("4_xqy2q")
+inventory_data = SubResource("Resource_j38f8")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 444.0
+offset_top = 119.0
+offset_right = 494.0
+offset_bottom = 169.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xms61")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 0.890196, 0.764706, 1)
+theme_override_colors/font_shadow_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 2
+text = "Inventory"
+
+[node name="ItemSlotGrid" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("linked_inventory")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 5
+script = ExtResource("9_qfqeu")
+linked_inventory = NodePath("../../../../Inventory")
